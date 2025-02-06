@@ -13,6 +13,13 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(assignmentItems, id: \.self) { Assignment in
+                    HStack {
+                        VStack(alignment: .leading, content: {
+                            Text(assignmentItems.courses).font(.headline)
+                            Text(assignmentItems.description)
+                        })
+                        Spacer()
+                    }
                     Text(Assignment)
                 }
                 .onMove(perform: { indices, newOffset in

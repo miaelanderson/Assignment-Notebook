@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4121E7992D53BF4000557F68 /* AddAssignmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121E7982D53BF4000557F68 /* AddAssignmentView.swift */; };
+		41A59CA22D4D23E500FBBD16 /* AssignmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A59CA12D4D23E500FBBD16 /* AssignmentList.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		4121E7982D53BF4000557F68 /* AddAssignmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssignmentView.swift; sourceTree = "<group>"; };
 		41A59C612D47DDFC00FBBD16 /* Assignment Notebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assignment Notebook.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41A59CA12D4D23E500FBBD16 /* AssignmentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +39,8 @@
 		41A59C582D47DDFC00FBBD16 = {
 			isa = PBXGroup;
 			children = (
+				4121E7982D53BF4000557F68 /* AddAssignmentView.swift */,
+				41A59CA12D4D23E500FBBD16 /* AssignmentList.swift */,
 				41A59C632D47DDFC00FBBD16 /* Assignment Notebook */,
 				41A59C622D47DDFC00FBBD16 /* Products */,
 			);
@@ -119,6 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A59CA22D4D23E500FBBD16 /* AssignmentList.swift in Sources */,
+				4121E7992D53BF4000557F68 /* AddAssignmentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
