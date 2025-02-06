@@ -8,29 +8,39 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var assignmentItems = ["First Assignment", "Second Assignment", "Third Assignment", "Fourth Assignment", "Fifth Assignment"]
+    @ObservedObject var assignmentList = AssignmentList()
+    @State private var showingAddAssignmentView = false
     var body: some View {
         NavigationView {
             List {
-                ForEach(assignmentItems, id: \.self) { Assignment in
+                ForEach(assignmentList.items) { item in
                     HStack {
                         VStack(alignment: .leading, content: {
-                            Text(assignmentItems.courses).font(.headline)
-                            Text(assignmentItems.description)
+                            Text(item.course).font(.headline)
+                            Text(item.description)
                         })
                         Spacer()
+                        Text(item.dueDate, style: .date)
                     }
-                    Text(Assignment)
                 }
                 .onMove(perform: { indices, newOffset in
-                    assignmentItems.move(fromOffsets: indices, toOffset: newOffset)
+                    assignmentList.items.move(fromOffsets: indices, toOffset:
+                    newOffset)
                 })
                 .onDelete(perform: { indexSet in
-                    assignmentItems.remove(atOffsets: indexSet)
+                    assignmentList.items.remove(atOffsets: indexSet)
                 })
             }
-            .navigationBarTitle("Assignment Notebook", displayMode: .inline)
-            .navigationBarItems(leading: EditButton())
+            .sheet(isPresented: $showingAddAssignmentView, content: {
+                AddAssignmentView(assignmentList: assignmentList)
+            })
+            .navigationBarTitle("Assignment Notebook!", displayMode: .inline)
+            .navigationBarItems(leading: EditButton(),
+                                trailing: Button(action: {
+                showingAddAssignmentView = true
+            }, label: {
+                Image(systemName: "plus")
+            }))
         }
     }
 }
